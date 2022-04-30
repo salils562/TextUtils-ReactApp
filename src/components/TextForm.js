@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 
 export default function TextForm(props) {
-  document.title='TextUtils - Home';
   const [text,setText]=useState("");
   const textUpChanger=()=>{
    let newText=text.toUpperCase();

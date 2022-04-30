@@ -3,8 +3,6 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-// import About from './components/About';
-// import { BrowserRouter as Router ,Route, Routes } from "react-router-dom";
 function App() {
   const [mode,setMode]=useState('light');
   const [greenmode,setGreenMode]=useState('light');
@@ -24,11 +22,13 @@ function App() {
     setMode('dark');
     document.body.style.backgroundColor="black";
     showAlert("Dark mode Enabled","success");
+    document.title='TextUtils - DarkMode';
   }
   else{
     setMode('light');
     document.body.style.backgroundColor="white";
     showAlert("Dark mode Disabled","success");
+    document.title='TextUtils - LightMode';
   }
   }
   const toggleGreenMode=()=>{
@@ -47,24 +47,14 @@ function App() {
   }
   let title="TextUtils";
   return (
-  //  <Router>
+ 
    <>
    <Navbar title={title} mode={mode} greenMode={toggleGreenMode} greenmode={greenmode} modeSetter={toggleMode}/>
    <Alert alert={alert}/>
-   {/* <Routes>
-    <Route path="/" element={<TextForm heading="Enter text here" mode={mode} buttonColor={buttonColor} showAlert={showAlert}/>} />
-    <Route path="/About" element={<About mode={mode}/>} />
-    
-    </Routes> */}
-    <TextForm heading="Enter text here" mode={mode} buttonColor={buttonColor} showAlert={showAlert}/>
-    {/* <About mode={mode}/> */}
-  
-  
-  
-  
    
+    <TextForm heading="Enter text here" mode={mode} buttonColor={buttonColor} showAlert={showAlert}/>
+    
    </>
-   // </Router>
   );
 }
 
