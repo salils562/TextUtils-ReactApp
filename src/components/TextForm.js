@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 
 export default function TextForm(props) {
+  document.title='TextUtils - Home';
   const [text,setText]=useState("");
   const textUpChanger=()=>{
    let newText=text.toUpperCase();
@@ -11,6 +12,11 @@ export default function TextForm(props) {
   let newText=text.toLowerCase();
   setText(newText);
   props.showAlert("Changed to lowerCase","success");
+  }
+  const removeExtraSpace=()=>{
+  let newString=text.replace(/\s+/g,' ');
+  setText(newString);
+  props.showAlert("Removed Extra Spaces","success");
   }
   const clear=()=>{
   setText("");
@@ -39,6 +45,7 @@ export default function TextForm(props) {
        <div className="btn-flex">
        <button className={`btn btn-${props.buttonColor}  mx-3 butn`} id="item-1" onClick={textUpChanger}>Convert to UpperCase</button>
        <button className="btn btn-secondary mx-3 butn" id="item-2" onClick={textLowChanger}>Convert to LowerCase</button>
+       <button className="btn btn-secondary mx-3 butn" id="item-2" onClick={removeExtraSpace}>Remove Extra Spaces</button>
        <button className="btn btn-secondary mx-3 butn" id="item-3" onClick={clear}>Clear Text</button></div>
        <div className="container px-5">
        <p className="my-3">Total {text.length} letters and {text.split(" ").length} words</p>
